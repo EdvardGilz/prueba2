@@ -7,6 +7,6 @@ dentro de la carpeta donde se quiera bajar >
 Para subir todos los cambios:
 
 dentro de la carpeta prueba2 >
-	git add pointownv1devdesign/*
+	git add keykeeper/*
 	git commit -m “mensaje”
 	git push

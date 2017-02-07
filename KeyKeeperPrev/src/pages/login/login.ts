@@ -26,6 +26,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
               public storage: Storage) {
+    
     this.verificaPass();
   }
 
@@ -93,5 +94,4 @@ export class LoginPage {
     });
     confirm.present();
   }
-
 }

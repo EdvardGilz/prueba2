@@ -1,0 +1,37 @@
+<!--
+  Generated template for the Configuracion page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Configuracion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <p>Cambiar contraseña:</p>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Contraseña Actual</ion-label>
+      <ion-input [(ngModel)]="pass" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Nueva Contraseña</ion-label>
+      <ion-input [(ngModel)]="passN" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Repetir Nueva Contraseña</ion-label>
+      <ion-input [(ngModel)]="passN2" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
+    </ion-item>
+    <p *ngIf="diferentes == true">*Contraseñas diferentes</p>
+    <p *ngIf="diferentes2 == true">*La nueva contraseña debe ser diferente a la anterior</p>
+  </ion-list>
+
+  <button ion-button (click)="cancelar()">Cancelar</button>
+  <button ion-button (click)="aceptar()" [disabled]="btnDisabled">Aceptar</button>
+</ion-content>

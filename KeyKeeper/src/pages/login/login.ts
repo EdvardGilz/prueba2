@@ -69,7 +69,7 @@ export class LoginPage {
     }
     else {
       console.log("no valido");
-      Toast.showShortBottom('Contraseña invalida').subscribe();
+      // Toast.showShortBottom('Contraseña invalida').subscribe();
     }
   }
 

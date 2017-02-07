@@ -4,12 +4,18 @@ import { Storage } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { AgregarPage } from '../pages/agregar/agregar';
+import { PopOverPage } from '../pages/pop-over/pop-over';
+import { ConfiguracionPage } from '../pages/configuracion/configuracion';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    AgregarPage,
+    PopOverPage,
+    ConfiguracionPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -18,7 +24,10 @@ import { LoginPage } from '../pages/login/login';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
+    AgregarPage,
+    PopOverPage,
+    ConfiguracionPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

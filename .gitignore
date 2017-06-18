@@ -2,3 +2,4 @@
 KeyKeeper/node_modules/*
 KeyKeeper/package.json
 KeyKeeper/www/*
+KeyKeeper/www/build/*

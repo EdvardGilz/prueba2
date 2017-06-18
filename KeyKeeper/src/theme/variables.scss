@@ -23,35 +23,123 @@ $font-path: "../assets/fonts";
 // colors so you can add, rename and remove colors as needed.
 // The "primary" color is the only required color in the map.
 
-$colors: (
-  primary:    #387ef5,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
-);
+$colors: ( 
+    primary:#5a4370, 
+    secondary:#58DA87,
+    light:#FFAB18,
+    danger:#E66F66,
+    dark:#291f33,
+    white:#FFFFFF,
+    black:#000000,
+    // tonos medios
+    primarymedium: desaturate( lighten( #00B0B8, 50% ), 65% )
+     );
 
+/* Degradados 
+// posiblemente android de problemas, añadir esto: https://sujitaweb.wordpress.com/2016/05/27/gradient-background-in-ionic/
+ .content-md, .content-ios, .content-wp { background-image: -webkit-gradient( linear, 50% 0%, 50% 100%, color-stop(0%, color($colors, light) ), color-stop(100%, color($colors, dark) )) !important; }
+*/
+page-login{ 
+  .content-md, .content-ios, .content-wp{
+    background: -webkit-linear-gradient(180deg, color($colors, black), color($colors, dark));
+    background: linear-gradient(180deg, color($colors, black), color($colors, dark));
+  }
+ }
+
+/* Sobreescritura para las variables globales 
+* Es importante saber al menos las palabras reservadas que sass usa como operadores:
+* https://robots.thoughtbot.com/controlling-color-with-sass-color-functions
+
+-Para oscurecer o aclarar el tono:
+darken( $base-color, 10% ) | lighten( $base-color, 10% )
+-Para saturar o desaturar de color:
+saturate( $base-color, 20% ) | desaturate( $base-color, 20% )
+-Para ajustar HUE (tono de espectro) | adjust-hue( $base-color, 20% )
+-Para controlar transparencia:
+rgba( $base-color, .7 )
+-Para controlar tinte
+tint( $base-color, 10% ) | shade( $base-color, 10% ) 
+
+/* Globales */
+$background-color: desaturate( lighten( color($colors, light), 42% ), 50% );
+$text-color: lighten(desaturate(color($colors, dark), 100%),15%);
+$list-border-color: lighten( $text-color, 50%);
+$toolbar-background: color($colors, dark);
+$button-md-text-transform: none;
+$button-md-box-shadow: false;
+
+/* Sombra */
+.boxshadow{box-shadow: 0px 0px 16px rgba(color($colors, dark), .8);}
+
+/*Inline checkbox*/
+.inline-checkbox{width: 14.285714285714285714285714285714% !important;*width: 14.285714285714285714285714285714% !important;float: left;padding: 0px !important;min-height: 8rem !important;text-align: center !important;}
+.inline-checkbox ion-checkbox{z-index: 100;margin: 0px auto 12px !important}
+.inline-checkbox .item-inner{position: absolute;right: 0;left: 0;bottom: -20px;margin: 0 auto;border: none !important;width: auto;padding: 0px 0px 0px 5px !important;}
+
+// para añadir animaciones:
+@keyframes blink { 0% { opacity:1; } 50% { opacity:.2; } 100% { opacity:1; } }
+	.blink { animation-name: blink; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: alternate; }
+@keyframes pump { 0% { transform: scale(1); } 50% { transform: scale(.8); } 100% { transform: scale(1); } }
+	.pump { animation-name: pump;animation-duration: 2s;transform-origin:50% 50%;animation-iteration-count: infinite;animation-timing-function: alternate;}
+
+/*para cambiar el tamaño de texto en inputs*/
+.item-label-floating .text-input{ font-size: 1.2em; }
+
+/*clases que no estan sujetas a las variables sass*/
+.footer-md::before{background-image:none !important;}
+input{box-shadow: none !important;}
+.md ion-list > .item:last-child, .md ion-list > .item-wrapper:last-child .item,
+.wp ion-list > .item:last-child, .wp ion-list > .item-wrapper:last-child .item,
+.ios ion-list > .item:last-child, .ios ion-list > .item-wrapper:last-child .item {
+    border-bottom: none;
+}
 
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
-
+$card-ios-background-color: color($colors, white);
+$item-ios-divider-background: desaturate( lighten( color($colors, light), 40% ), 100% );
+$item-ios-divider-color: desaturate( lighten( color($colors, primary), 30% ), 80% );
+$item-ios-body-text-font-size: 1.8rem;
+$item-ios-font-size: 1.8rem;
+$list-ios-header-text-transform: none;
+$list-ios-header-letter-spacing: none;
+$list-ios-border-color: $list-border-color;
+$searchbar-ios-toolbar-input-background: color($colors, white) ;
+// color en el label
+.input-has-focus .label-ios[floating], .input-has-value .label-ios[floating] { color: color($colors, primary);}
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
-
+$card-md-background-color: $card-ios-background-color;
+$item-md-divider-background: $item-ios-divider-background;
+$item-md-divider-color: $item-ios-divider-color;
+$item-md-divider-border-bottom: false;
+$text-input-md-highlight-color: color($colors, white);
+$item-md-body-text-font-size: $item-ios-body-text-font-size;
+$item-md-font-size: $item-ios-font-size;
+$list-md-border-color: $list-border-color;
+$searchbar-md-toolbar-input-background: $searchbar-ios-toolbar-input-background;
+// color en el label
+$label-md-text-color-focused:color($colors, primary);
+// ocultar la alerta de borde en inputs
+$text-input-md-show-focus-highlight: false;
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
-
-
+$card-wp-background-color: $card-ios-background-color;
+$item-wp-divider-background: $item-ios-divider-background;
+$item-wp-divider-color: $item-ios-divider-color;
+$item-wp-body-text-font-size: $item-ios-body-text-font-size;
+$item-wp-font-size: $item-ios-font-size;
+$list-wp-border-color: $list-border-color;
+$searchbar-wp-toolbar-input-background: $searchbar-ios-toolbar-input-background;
+$text-input-wp-border-width: 0px;
 
 // App Theme
 // --------------------------------------------------
@@ -60,7 +148,7 @@ $colors: (
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.dark";
+@import "ionic.theme.default";
 
 
 // Ionicons

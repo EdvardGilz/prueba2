@@ -1,2 +1,4 @@
 *.DS_Store
 KeyKeeper/node_modules/*
+KeyKeeper/package.json
+KeyKeeper/www/*

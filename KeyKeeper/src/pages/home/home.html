@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Las contraseñas
+      Tus contraseñas
     </ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="abrirMenu($event)">
@@ -12,14 +12,21 @@
 </ion-header>
 
 <ion-content padding>
+
   <ion-card *ngIf="passInfo.length == 0">
     <ion-card-header>
-      Agrega una nueva página
+      <h1>Bienvenido:</h1>
     </ion-card-header>
-    <ion-card-content>
-      Aún no tienes nada registrado
+    <ion-card-content color="primary">
+      <ul no-margin margin-bottom padding-left>
+        <li> Aquí almacenaré en tarjetas cada contraseña que necesites recordar. </li>
+        <li> Puedes añadir direcciones o nombres de referencia. </li>
+        <li> Por seguridad todo se guarda en tu dispositivo.</li>
+        <li> Si extravias tu contraseña maestra tu información es irrecuperable, deberás borrar la información.</li>
+      </ul>
     </ion-card-content>
   </ion-card>
+  
 
   <ion-card *ngFor="let pass of passInfo; let i = index">
     <ion-card-header (click)="activar(i)">
@@ -57,5 +64,6 @@
 
 <ion-footer>
   <ion-toolbar>
+    <p padding-left color="white">Agregar contraseña<p>
   </ion-toolbar>
 </ion-footer>

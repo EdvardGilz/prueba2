@@ -4,49 +4,49 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-content padding>
+<ion-content padding> 
 
-  <div text-center style="padding:30px 20px">
-    <img style="width: auto; height: 240px;" src="assets/img/kk-logo.svg"/>
-    <p no-margin color="white">Recuerda y protege tus contraseñas</p>
+  <div text-center style="padding:30px 20px 10px">
+    <img style="width: auto; height: 180px;" src="assets/img/kk-logo.svg"/>
+    <p no-margin color="primary">Recuerda y protege tus contraseñas</p>
   </div>
 
 
-  <ion-list *ngIf="conPass == true">
+  <ion-list padding text-center *ngIf="conPass == true">
 
-    <ion-item class="input-radius">
+    <ion-item margin-bottom class="input-radius">
       <ion-input [(ngModel)]="pass" (input)="verificarLlenado2()" (blur)="verificarLlenado2()" (focus)="verificarLlenado2()" type="password" placeholder="Contraseña"></ion-input>
     </ion-item>
 
-    <button ion-button block color="light" (click)="entrar()" [disabled]="btnDisabled">Entrar</button>
+    <button ion-button block margin-bottom color="light" (click)="entrar()" [disabled]="btnDisabled">Entrar</button>
+
+    <small color="white" *ngIf="conPass == true">
+      Keykeeper no almacena información fuera de tu dispositivo.
+    </small>
+
   </ion-list>
-  
 
-  <ion-list  *ngIf="conPass == false">
 
-    <!--h1 text-center color="danger">Crear contraseña maestra</h1-->
+  <ion-list padding  *ngIf="conPass == false">
 
-    <ion-item>
-      <ion-label floating>Contraseña</ion-label>
-      <ion-input [(ngModel)]="passN" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
+    <ion-item margin-bottom class="input-radius">
+      <ion-input [(ngModel)]="passN" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password" placeholder="Contraseña"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label floating>Repetir contraseña</ion-label>
-      <ion-input [(ngModel)]="passN2" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
+    <ion-item margin-bottom class="input-radius">
+      <ion-input [(ngModel)]="passN2" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password" placeholder="Repetir contraseña"></ion-input>
     </ion-item>
-    <p *ngIf="passN != passN2">*Las contraseñas deben coincidir</p>
+    <p color="white" text-center *ngIf="passN != passN2">*Las contraseñas deben coincidir</p>
 
     <button ion-button block color="light" (click)="guardar()" [disabled]="btnDisabled">Aceptar</button>
   </ion-list>
   
-  <span *ngIf="conPass == true">
-    <blockquote text-justify>* No se almacena ningun tipo de información fuera del dispositivo, si no recuerdas tu contraseña puedes reiniciar la app eliminando todo su contenido.</blockquote>
-    <button ion-button clear full color="danger" (click)="eliminarStorage()">Eliminar Datos</button>
-  </span>
-
-  <p text-right no-margin>
-    <small>©2017 Bixnia</small>
-  </p>
-
+  
 </ion-content>
+
+<ion-footer padding-left padding-right>
+  <button style="float:left;" margin-right ion-button outline small color="primary" *ngIf="conPass == true" (click)="eliminarStorage()">Borrar datos</button>
+  <p text-right color="white">
+    <small>©2017 Bixnia</small>
+  </p>    
+</ion-footer>

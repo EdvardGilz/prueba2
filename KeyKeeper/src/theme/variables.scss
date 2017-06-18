@@ -26,13 +26,11 @@ $font-path: "../assets/fonts";
 $colors: ( 
     primary:#5a4370, 
     secondary:#58DA87,
-    light:#FFAB18,
+    light:#f4b441,
     danger:#E66F66,
     dark:#291f33,
     white:#FFFFFF,
     black:#000000,
-    // tonos medios
-    primarymedium: desaturate( lighten( #00B0B8, 50% ), 65% )
      );
 
 /* Degradados 
@@ -61,8 +59,8 @@ rgba( $base-color, .7 )
 tint( $base-color, 10% ) | shade( $base-color, 10% ) 
 
 /* Globales */
-$background-color: desaturate( lighten( color($colors, light), 42% ), 50% );
-$text-color: lighten(desaturate(color($colors, dark), 100%),15%);
+$background-color: darken( color($colors, primary), 15% );
+$text-color: desaturate(color($colors, secondary),100%);
 $list-border-color: lighten( $text-color, 50%);
 $toolbar-background: color($colors, dark);
 $button-md-text-transform: none;
@@ -88,7 +86,7 @@ $button-md-box-shadow: false;
   border-radius: 25px !important;
   border:2px solid color($colors, primary) !important;
   background-color: color($colors, dark) !important;
-  color: white !important;
+  color: color($colors, light) !important;
 }
 .list-ios .item-block .item-inner, .item-ios.item-block .item-inner,
 .list-md .item-block .item-inner, .item-md.item-block .item-inner,
@@ -160,7 +158,7 @@ $text-input-wp-border-width: 0px;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.dark";
+@import "ionic.theme.default";
 
 
 // Ionicons

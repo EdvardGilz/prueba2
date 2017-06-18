@@ -25,24 +25,29 @@ $font-path: "../assets/fonts";
 
 $colors: ( 
     primary:#5a4370, 
-    secondary:#58DA87,
+    secondary:#2faba7,
     light:#f4b441,
     danger:#E66F66,
     dark:#291f33,
     white:#FFFFFF,
     black:#000000,
+    alpha:rgba(255,255,255,0),
      );
 
 /* Degradados 
 // posiblemente android de problemas, añadir esto: https://sujitaweb.wordpress.com/2016/05/27/gradient-background-in-ionic/
  .content-md, .content-ios, .content-wp { background-image: -webkit-gradient( linear, 50% 0%, 50% 100%, color-stop(0%, color($colors, light) ), color-stop(100%, color($colors, dark) )) !important; }
 */
-page-login{ 
-  .content-md, .content-ios, .content-wp{
+page-login, page-home{ 
+  .content-md, .content-ios{
     background: -webkit-linear-gradient(180deg, color($colors, black), color($colors, dark));
     background: linear-gradient(180deg, color($colors, black), color($colors, dark));
   }
  }
+  .content-wp, .card.card-md{
+    background: -webkit-linear-gradient(180deg, color($colors, white), rgba( color($colors, white), .8 ));
+    background: linear-gradient(180deg, color($colors, white), rgba( color($colors, white), .8 ));
+  }
 
 /* Sobreescritura para las variables globales 
 * Es importante saber al menos las palabras reservadas que sass usa como operadores:
@@ -59,10 +64,11 @@ rgba( $base-color, .7 )
 tint( $base-color, 10% ) | shade( $base-color, 10% ) 
 
 /* Globales */
-$background-color: darken( color($colors, primary), 15% );
+//$background-color: darken( color($colors, primary), 15% );
+$background-color: white;
 $text-color: desaturate(color($colors, secondary),100%);
 $list-border-color: lighten( $text-color, 50%);
-$toolbar-background: color($colors, dark);
+$toolbar-background: darken( color($colors, dark), 7% );
 $button-md-text-transform: none;
 $button-md-box-shadow: false;
 
@@ -106,9 +112,10 @@ input{box-shadow: none !important;}
 
 // App iOS Variables
 // --------------------------------------------------
-// iOS only Sass variables can go here
+// iOS only Sass variables can go here 
 
-$card-ios-background-color: color($colors, white);
+//$card-ios-background-color: color($colors, white);
+$card-ios-background-color: rgba( color($colors, white), .9 );
 $item-ios-divider-background: desaturate( lighten( color($colors, light), 40% ), 100% );
 $item-ios-divider-color: desaturate( lighten( color($colors, primary), 30% ), 80% );
 $item-ios-body-text-font-size: 1.8rem;

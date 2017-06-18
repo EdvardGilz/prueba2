@@ -14,13 +14,13 @@
 
   <ion-list *ngIf="conPass == true">
 
-    <ion-item>
-      <ion-label floating>Contraseña</ion-label>
-      <ion-input [(ngModel)]="pass" (input)="verificarLlenado2()" (blur)="verificarLlenado2()" (focus)="verificarLlenado2()" type="password"></ion-input>
+    <ion-item class="input-radius">
+      <ion-input [(ngModel)]="pass" (input)="verificarLlenado2()" (blur)="verificarLlenado2()" (focus)="verificarLlenado2()" type="password" placeholder="Contraseña"></ion-input>
     </ion-item>
 
     <button ion-button block color="light" (click)="entrar()" [disabled]="btnDisabled">Entrar</button>
   </ion-list>
+  
 
   <ion-list  *ngIf="conPass == false">
 

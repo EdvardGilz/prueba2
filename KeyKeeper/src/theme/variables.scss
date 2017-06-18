@@ -76,14 +76,25 @@ $button-md-box-shadow: false;
 .inline-checkbox ion-checkbox{z-index: 100;margin: 0px auto 12px !important}
 .inline-checkbox .item-inner{position: absolute;right: 0;left: 0;bottom: -20px;margin: 0 auto;border: none !important;width: auto;padding: 0px 0px 0px 5px !important;}
 
-// para añadir animaciones:
+/* para añadir animaciones:*/
 @keyframes blink { 0% { opacity:1; } 50% { opacity:.2; } 100% { opacity:1; } }
 	.blink { animation-name: blink; animation-duration: 2s; animation-iteration-count: infinite; animation-timing-function: alternate; }
 @keyframes pump { 0% { transform: scale(1); } 50% { transform: scale(.8); } 100% { transform: scale(1); } }
 	.pump { animation-name: pump;animation-duration: 2s;transform-origin:50% 50%;animation-iteration-count: infinite;animation-timing-function: alternate;}
 
-/*para cambiar el tamaño de texto en inputs*/
+/*Trabajo con inputs*/
 .item-label-floating .text-input{ font-size: 1.2em; }
+.input-radius{
+  border-radius: 25px !important;
+  border:2px solid color($colors, primary) !important;
+  background-color: color($colors, dark) !important;
+  color: white !important;
+}
+.list-ios .item-block .item-inner, .item-ios.item-block .item-inner,
+.list-md .item-block .item-inner, .item-md.item-block .item-inner,
+.list-wp .item-block .item-inner, .item-wp.item-block .item-inner{
+  border:none !important;
+  }
 
 /*clases que no estan sujetas a las variables sass*/
 .footer-md::before{background-image:none !important;}
@@ -93,6 +104,7 @@ input{box-shadow: none !important;}
 .ios ion-list > .item:last-child, .ios ion-list > .item-wrapper:last-child .item {
     border-bottom: none;
 }
+
 
 // App iOS Variables
 // --------------------------------------------------
@@ -148,7 +160,7 @@ $text-input-wp-border-width: 0px;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.default";
+@import "ionic.theme.dark";
 
 
 // Ionicons

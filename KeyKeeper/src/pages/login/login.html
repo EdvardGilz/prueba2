@@ -1,0 +1,52 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding> 
+
+  <div text-center style="padding:30px 20px 10px">
+    <img style="width: auto; height: 180px;" src="assets/img/kk-logo.svg"/>
+    <p no-margin color="primary">Recuerda y protege tus contraseñas</p>
+  </div>
+
+
+  <ion-list margin padding text-center *ngIf="conPass == true">
+
+    <ion-item margin-bottom class="input-radius hide-border">
+      <ion-input [(ngModel)]="pass" (input)="verificarLlenado2()" (ionBlur)="verificarLlenado2()" (ionFocus)="verificarLlenado2()" type="password" placeholder="Contraseña maestra"></ion-input>
+    </ion-item>
+
+    <button ion-button full color="light" margin-bottom (click)="entrar()" [disabled]="btnDisabled">Mostrar llaves</button>
+
+    <small color="white">
+      Keykeeper no almacena información fuera de tu dispositivo.
+    </small>
+
+  </ion-list>
+
+
+  <ion-list padding  *ngIf="conPass == false">
+
+    <ion-item margin-bottom class="input-radius hide-border">
+      <ion-input [(ngModel)]="passN" (input)="verificarLlenado()" (ionBlur)="verificarLlenado()" (ionFocus)="verificarLlenado()" type="password" placeholder="Contraseña"></ion-input>
+    </ion-item>
+
+    <ion-item margin-bottom class="input-radius hide-border">
+      <ion-input [(ngModel)]="passN2" (input)="verificarLlenado()" (ionBlur)="verificarLlenado()" (ionFocus)="verificarLlenado()" type="password" placeholder="Repetir contraseña"></ion-input>
+    </ion-item>
+    <p color="white" text-center *ngIf="passN != passN2">*Las contraseñas deben coincidir</p>
+
+    <button ion-button block color="light" (click)="guardar()" [disabled]="btnDisabled">Aceptar</button>
+  </ion-list>
+  
+  
+</ion-content>
+
+<ion-footer padding-left padding-right>
+  <button style="float:left;" margin-right ion-button outline small color="primary" *ngIf="conPass == true" (click)="eliminarStorage()">Borrar datos</button>
+  <p text-right ion-text color="white">
+    <small>©2017 Bixnia</small>
+  </p>    
+</ion-footer>

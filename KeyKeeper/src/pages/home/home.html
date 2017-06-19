@@ -1,14 +1,81 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Mi llavero
     </ion-title>
+    <ion-buttons end>
+      <button color="primary" ion-button icon-only (click)="abrirMenu($event)">
+        <ion-icon name='menu'></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+  <ion-card *ngIf="passInfo.length == 0">
+    <ion-card-header>
+      <h1 color="secondary" >Bienvenido:</h1>
+    </ion-card-header>
+    <ion-card-content color="primary">
+      <ul no-margin margin-bottom padding-left>
+        <li> Aquí almacenaré en tarjetas cada contraseña que necesites recordar. </li>
+        <li> Puedes añadir direcciones o nombres de referencia. </li>
+        <li> Por seguridad todo se guarda en tu dispositivo.</li>
+        <li> Si extravias tu contraseña principal no podrás recuperar la información.</li>
+        <li> Para reiniciar la aplicación solo borra los datos.</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+  
+
+  <ion-card *ngFor="let pass of passInfo; let i = index">
+
+    <ion-card-header no-padding padding-top padding-bottom padding-right (click)="activar(i)">
+      <ion-row>
+        <ion-col width-10 text-center>
+          <ion-icon icon-only name='close' (click)="eliminar(i)"></ion-icon>          
+        </ion-col>
+        <ion-col width-80>
+          {{pass.titulo}}
+        </ion-col>
+        <ion-col width-10>
+          <ion-icon color="secondary" icon-only name='key' (click)="editar(i)"></ion-icon>
+        </ion-col>       
+      </ion-row>
+    </ion-card-header>
+
+    <ion-card-content *ngIf="pass.activo == true">
+      <ion-item no-padding color="alpha">
+        <ion-label no-margin>
+          <ion-icon color="primary"  name="contact"></ion-icon> <span color="dark">{{pass.user}}</span>
+        </ion-label>
+        <ion-icon color="secondary" name='copy' item-right (click)="copiar(i, 1)"></ion-icon>
+      </ion-item>
+      <ion-item no-padding color="alpha">
+        <ion-label no-margin>
+          <ion-icon color="primary"  name="key"></ion-icon> <span color="black">{{pass.pass}}</span>
+        </ion-label>
+        <ion-icon color="secondary" name='copy' item-right (click)="copiar(i, 2)"></ion-icon>
+      </ion-item>
+      <ion-item no-padding color="alpha" *ngIf="pass.extra">
+        <ion-label no-margin>
+          <ion-icon color="primary"  name="clipboard"></ion-icon> <span>{{pass.extra}}</span>
+        </ion-label>
+        <ion-icon color="secondary" name='copy' item-right (click)="copiar(i, 3)"></ion-icon>
+      </ion-item>
+    </ion-card-content>
+    
+  </ion-card>
+
 </ion-content>
+
+<ion-fab center bottom>
+  <button ion-fab (click)="agregarItems()"><ion-icon color="light" name="key"></ion-icon></button>
+</ion-fab>
+
+<ion-footer>
+  <ion-toolbar>
+    <!--<p padding-left color="white">Nueva llave<p>-->
+  </ion-toolbar>
+</ion-footer>

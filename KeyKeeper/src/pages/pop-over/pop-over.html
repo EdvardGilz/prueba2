@@ -5,10 +5,18 @@
   Ionic pages and navigation.
 -->
 <ion-content>
-  <ion-list>
-    <ion-list-header>Menú</ion-list-header>
-    <button ion-item (click)="config()">Configuración</button>
+
+  <ion-list style="margin-bottom:0px;">
+
+    <ion-list-header color="primary" no-margin>Menú</ion-list-header>
+
+    <button ion-item text-right (click)="config()">
+      <span style="float:left;" color="primary">Configuración</span> <ion-icon color="primary" name="settings"></ion-icon>
+    </button>
+
     <!--<button ion-item (click)="acerca()">Acerca de</button>
     <button ion-item (click)="apoya()">Apoya</button>-->
+
   </ion-list>
+
 </ion-content>

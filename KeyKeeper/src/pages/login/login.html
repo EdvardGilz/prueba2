@@ -12,15 +12,15 @@
   </div>
 
 
-  <ion-list padding text-center *ngIf="conPass == true">
+  <ion-list margin padding text-center *ngIf="conPass == true">
 
-    <ion-item margin-bottom class="input-radius">
-      <ion-input [(ngModel)]="pass" (input)="verificarLlenado2()" (blur)="verificarLlenado2()" (focus)="verificarLlenado2()" type="password" placeholder="Contraseña"></ion-input>
+    <ion-item margin-bottom class="input-radius hide-border">
+      <ion-input [(ngModel)]="pass" (input)="verificarLlenado2()" (blur)="verificarLlenado2()" (focus)="verificarLlenado2()" type="password" placeholder="Contraseña maestra"></ion-input>
     </ion-item>
 
-    <button ion-button block margin-bottom color="light" (click)="entrar()" [disabled]="btnDisabled">Entrar</button>
+    <button ion-button full color="light" margin-bottom (click)="entrar()" [disabled]="btnDisabled">Mostrar llaves</button>
 
-    <small color="white" *ngIf="conPass == true">
+    <small color="white">
       Keykeeper no almacena información fuera de tu dispositivo.
     </small>
 
@@ -29,11 +29,11 @@
 
   <ion-list padding  *ngIf="conPass == false">
 
-    <ion-item margin-bottom class="input-radius">
+    <ion-item margin-bottom class="input-radius hide-border">
       <ion-input [(ngModel)]="passN" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password" placeholder="Contraseña"></ion-input>
     </ion-item>
 
-    <ion-item margin-bottom class="input-radius">
+    <ion-item margin-bottom class="input-radius hide-border">
       <ion-input [(ngModel)]="passN2" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password" placeholder="Repetir contraseña"></ion-input>
     </ion-item>
     <p color="white" text-center *ngIf="passN != passN2">*Las contraseñas deben coincidir</p>

@@ -7,31 +7,46 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Configuracion</ion-title>
+    <ion-title>Configuración</ion-title>
+
+    <ion-buttons end>
+      <button color="danger" ion-button clear (click)="cancelar()">
+        <ion-icon name='close'></ion-icon>
+      </button>
+    </ion-buttons>
+    
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-  <p>Cambiar contraseña:</p>
+<ion-content>
   <ion-list>
+    <ion-list-header color="primary" no-margin>Cambiar contraseña</ion-list-header>
     <ion-item>
-      <ion-label floating>Contraseña Actual</ion-label>
+      <ion-label color="primary" floating>Contraseña Actual</ion-label>
       <ion-input [(ngModel)]="pass" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Nueva Contraseña</ion-label>
+      <ion-label color="primary" floating>Nueva Contraseña</ion-label>
       <ion-input [(ngModel)]="passN" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Repetir Nueva Contraseña</ion-label>
+      <ion-label color="primary" floating>Repetir Nueva Contraseña</ion-label>
       <ion-input [(ngModel)]="passN2" (input)="verificarLlenado()" (blur)="verificarLlenado()" (focus)="verificarLlenado()" type="password"></ion-input>
     </ion-item>
-    <p *ngIf="diferentes == true">*Contraseñas diferentes</p>
-    <p *ngIf="diferentes2 == true">*La nueva contraseña debe ser diferente a la anterior</p>
   </ion-list>
 
-  <button ion-button (click)="cancelar()">Cancelar</button>
-  <button ion-button (click)="aceptar()" [disabled]="btnDisabled">Aceptar</button>
+  <p text-center padding color="danger" *ngIf="diferentes == true">*Contraseñas diferentes</p>
+  <p text-center padding color="danger" *ngIf="diferentes2 == true">*La nueva contraseña debe ser diferente a la anterior</p>      
+
+  <ion-row padding-left padding-right>
+    <ion-col width-50 text-center>
+      <button ion-button full color="danger" (click)="cancelar()">Cancelar</button>
+    </ion-col>
+    <ion-col width-50>
+      <button ion-button full (click)="aceptar()" [disabled]="btnDisabled">Aceptar</button>
+    </ion-col>       
+  </ion-row>
+
 </ion-content>

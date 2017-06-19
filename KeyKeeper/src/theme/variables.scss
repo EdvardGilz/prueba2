@@ -39,15 +39,16 @@ $colors: (
  .content-md, .content-ios, .content-wp { background-image: -webkit-gradient( linear, 50% 0%, 50% 100%, color-stop(0%, color($colors, light) ), color-stop(100%, color($colors, dark) )) !important; }
 */
 page-login, page-home{ 
-  .content-md, .content-ios{
+  .content-md, .content-ios,.content-wp{
     background: -webkit-linear-gradient(180deg, color($colors, black), color($colors, dark));
     background: linear-gradient(180deg, color($colors, black), color($colors, dark));
   }
  }
-  .content-wp, .card.card-md{
-    background: -webkit-linear-gradient(180deg, color($colors, white), rgba( color($colors, white), .8 ));
-    background: linear-gradient(180deg, color($colors, white), rgba( color($colors, white), .8 ));
-  }
+
+.card.card-md{
+  background: -webkit-linear-gradient(180deg, color($colors, white), rgba( color($colors, white), .8 ));
+  background: linear-gradient(180deg, color($colors, white), rgba( color($colors, white), .8 ));
+}
 
 /* Sobreescritura para las variables globales 
 * Es importante saber al menos las palabras reservadas que sass usa como operadores:
@@ -86,6 +87,8 @@ $button-md-box-shadow: false;
 @keyframes pump { 0% { transform: scale(1); } 50% { transform: scale(.8); } 100% { transform: scale(1); } }
 	.pump { animation-name: pump;animation-duration: 2s;transform-origin:50% 50%;animation-iteration-count: infinite;animation-timing-function: alternate;}
 
+.animate{-webkit-transition:all 0.4s ease-in-out;-moz-transition:all 0.4s ease-in-out;-ms-transition:all 0.4s ease-out;-o-transition:all 0.4s ease-in-out;transition:all 0.4s ease-in-out;}
+
 /*Trabajo con inputs*/
 .item-label-floating .text-input{ font-size: 1.2em; }
 .input-radius{
@@ -94,22 +97,27 @@ $button-md-box-shadow: false;
   background-color: color($colors, dark) !important;
   color: color($colors, light) !important;
 }
-.list-ios .item-block .item-inner, .item-ios.item-block .item-inner,
-.list-md .item-block .item-inner, .item-md.item-block .item-inner,
-.list-wp .item-block .item-inner, .item-wp.item-block .item-inner{
-  border:none !important;
-  }
+.input-radius:hover,.input-radius:active,.input-radius:focus{
+  border-color: color($colors, light) !important;
+}
+.item-input.hide-border>.item-inner { border:none !important;}
 
 /*clases que no estan sujetas a las variables sass*/
-.footer-md::before{background-image:none !important;}
-input{box-shadow: none !important;}
+// sombra en header 
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{background-image:none !important;}
+ion-modal .header-ios .toolbar-background-ios,
+.list-wp > .item-block:first-child, .list-wp > .item-wrapper:first-child .item-block {border:none!important;}
+
+//input{box-shadow: none !important;}
 .md ion-list > .item:last-child, .md ion-list > .item-wrapper:last-child .item,
 .wp ion-list > .item:last-child, .wp ion-list > .item-wrapper:last-child .item,
 .ios ion-list > .item:last-child, .ios ion-list > .item-wrapper:last-child .item {
     border-bottom: none;
 }
-
-
+//Estilo en encabezados
+.toolbar-title-ios,.toolbar-title-md,.toolbar-title-wp {
+    text-transform: uppercase;
+}
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here 
@@ -124,6 +132,7 @@ $list-ios-header-text-transform: none;
 $list-ios-header-letter-spacing: none;
 $list-ios-border-color: $list-border-color;
 $searchbar-ios-toolbar-input-background: color($colors, white) ;
+$popover-ios-border-radius:0px;
 // color en el label
 .input-has-focus .label-ios[floating], .input-has-value .label-ios[floating] { color: color($colors, primary);}
 
@@ -140,6 +149,7 @@ $item-md-body-text-font-size: $item-ios-body-text-font-size;
 $item-md-font-size: $item-ios-font-size;
 $list-md-border-color: $list-border-color;
 $searchbar-md-toolbar-input-background: $searchbar-ios-toolbar-input-background;
+$popover-md-border-radius:$popover-ios-border-radius;
 // color en el label
 $label-md-text-color-focused:color($colors, primary);
 // ocultar la alerta de borde en inputs
@@ -157,6 +167,7 @@ $item-wp-font-size: $item-ios-font-size;
 $list-wp-border-color: $list-border-color;
 $searchbar-wp-toolbar-input-background: $searchbar-ios-toolbar-input-background;
 $text-input-wp-border-width: 0px;
+$popover-wp-border-radius:$popover-ios-border-radius;
 
 // App Theme
 // --------------------------------------------------

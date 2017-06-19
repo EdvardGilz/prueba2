@@ -3,11 +3,11 @@
 // posiblemente android de problemas, añadir esto: https://sujitaweb.wordpress.com/2016/05/27/gradient-background-in-ionic/
  .content-md, .content-ios, .content-wp { background-image: -webkit-gradient( linear, 50% 0%, 50% 100%, color-stop(0%, color($colors, light) ), color-stop(100%, color($colors, dark) )) !important; }
 */
-page-login .content-md, page-login .content-ios, page-home .content-md, page-home .content-ios {
+page-login .content-md, page-login .content-ios, page-login .content-wp, page-home .content-md, page-home .content-ios, page-home .content-wp {
   background: linear-gradient(180deg, #000000, #291f33);
 }
 
-.content-wp, .card.card-md {
+.card.card-md {
   background: linear-gradient(180deg, #FFFFFF, rgba(255, 255, 255, 0.8));
 }
 
@@ -135,6 +135,10 @@ tint( $base-color, 10% ) | shade( $base-color, 10% )
   animation-timing-function: alternate;
 }
 
+.animate {
+  transition: all 0.4s ease-in-out;
+}
+
 /*Trabajo con inputs*/
 .item-label-floating .text-input {
   font-size: 1.2em;
@@ -147,25 +151,32 @@ tint( $base-color, 10% ) | shade( $base-color, 10% )
   color: #f4b441 !important;
 }
 
-.list-ios .item-block .item-inner, .item-ios.item-block .item-inner,
-.list-md .item-block .item-inner, .item-md.item-block .item-inner,
-.list-wp .item-block .item-inner, .item-wp.item-block .item-inner {
+.input-radius:hover, .input-radius:active, .input-radius:focus {
+  border-color: #f4b441 !important;
+}
+
+.item-input.hide-border > .item-inner {
   border: none !important;
 }
 
 /*clases que no estan sujetas a las variables sass*/
-.footer-md::before {
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
   background-image: none !important;
 }
 
-input {
-  box-shadow: none !important;
+ion-modal .header-ios .toolbar-background-ios,
+.list-wp > .item-block:first-child, .list-wp > .item-wrapper:first-child .item-block {
+  border: none !important;
 }
 
 .md ion-list > .item:last-child, .md ion-list > .item-wrapper:last-child .item,
 .wp ion-list > .item:last-child, .wp ion-list > .item-wrapper:last-child .item,
 .ios ion-list > .item:last-child, .ios ion-list > .item-wrapper:last-child .item {
   border-bottom: none;
+}
+
+.toolbar-title-ios, .toolbar-title-md, .toolbar-title-wp {
+  text-transform: uppercase;
 }
 
 .input-has-focus .label-ios[floating], .input-has-value .label-ios[floating] {
@@ -14331,7 +14342,7 @@ ion-popover {
   min-width: 0;
   min-height: 0;
   max-height: 90%;
-  border-radius: 10px;
+  border-radius: 0px;
   color: #6d6d6d;
   background: white;
 }
@@ -14372,7 +14383,7 @@ ion-popover {
   min-width: 0;
   min-height: 0;
   max-height: 90%;
-  border-radius: 2px;
+  border-radius: 0px;
   color: #6d6d6d;
   background: white;
   box-shadow: 0 3px 12px 2px rgba(0, 0, 0, 0.3);
@@ -14391,7 +14402,7 @@ ion-popover {
   min-height: 0;
   max-height: 90%;
   border: 2px solid #ccc;
-  border-radius: 0;
+  border-radius: 0px;
   color: #6d6d6d;
   background: white;
   -webkit-transform-origin: top left;

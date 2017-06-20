@@ -66,12 +66,12 @@ export class Configuracion {
   aceptar() {
     this.storage.get('pass').then((data) => {
       if (this.pass != data) {
-        // this.toast.showShortBottom('La contraseña es incorrecta').subscribe();
+        this.toast.showShortBottom('La contraseña es incorrecta').subscribe();
         console.log("La contraseña es incorrecta")
       }
       else {
         this.storage.set('pass', this.passN);
-        // this.toast.showShortBottom('La contraseña se ha modificado').subscribe();
+        this.toast.showShortBottom('La contraseña se ha modificado').subscribe();
         console.log("La contraseña se ha modificado");
         this.viewCtrl.dismiss();
       }

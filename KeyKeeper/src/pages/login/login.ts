@@ -71,7 +71,7 @@ export class Login {
     }
     else {
       console.log("no valido");
-      // this.toast.showShortBottom('Contraseña invalida').subscribe();
+      this.toast.showShortBottom('Contraseña invalida').subscribe();
     }
   }
 

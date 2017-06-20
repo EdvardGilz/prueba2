@@ -77,6 +77,15 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.clipboard"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-clipboard-x/www/clipboard.js",
+        "id": "cordova-plugin-clipboard-x.Clipboard",
+        "pluginId": "cordova-plugin-clipboard-x",
+        "clobbers": [
+            "cordova.plugins.clipboard",
+            "cordova.plugins.clipboard-x"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -90,7 +99,8 @@ module.exports.metadata =
     "ionic-plugin-keyboard": "2.2.1",
     "cordova-sqlite-storage": "2.0.4",
     "cordova-plugin-x-toast": "2.6.0",
-    "com.danielsogl.cordova.clipboard": "1.0.2"
+    "com.danielsogl.cordova.clipboard": "1.0.2",
+    "cordova-plugin-clipboard-x": "1.0.1"
 }
 // BOTTOM OF METADATA
 });

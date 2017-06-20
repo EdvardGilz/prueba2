@@ -46,7 +46,7 @@
                         },
                         {
                             "xml": "<feature name=\"Clipboard\"><param name=\"ios-package\" value=\"CDVClipboard\" /></feature>",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -79,6 +79,9 @@
             "PACKAGE_NAME": "com.ionicframework.keykeeper484970"
         },
         "com.danielsogl.cordova.clipboard": {
+            "PACKAGE_NAME": "com.ionicframework.keykeeper484970"
+        },
+        "cordova-plugin-clipboard-x": {
             "PACKAGE_NAME": "com.ionicframework.keykeeper484970"
         }
     },
@@ -161,6 +164,15 @@
             "clobbers": [
                 "cordova.plugins.clipboard"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-clipboard-x/www/clipboard.js",
+            "id": "cordova-plugin-clipboard-x.Clipboard",
+            "pluginId": "cordova-plugin-clipboard-x",
+            "clobbers": [
+                "cordova.plugins.clipboard",
+                "cordova.plugins.clipboard-x"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -172,6 +184,7 @@
         "ionic-plugin-keyboard": "2.2.1",
         "cordova-sqlite-storage": "2.0.4",
         "cordova-plugin-x-toast": "2.6.0",
-        "com.danielsogl.cordova.clipboard": "1.0.2"
+        "com.danielsogl.cordova.clipboard": "1.0.2",
+        "cordova-plugin-clipboard-x": "1.0.1"
     }
 }

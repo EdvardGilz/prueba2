@@ -63,10 +63,10 @@
         "is_top_level": true,
         "variables": {}
     },
-    "com.danielsogl.cordova.clipboard": {
+    "cordova-plugin-clipboard-x": {
         "source": {
             "type": "registry",
-            "id": "danielsogl-cordova-plugin-clipboard"
+            "id": "cordova-plugin-clipboard-x@^1.0.1"
         },
         "is_top_level": true,
         "variables": {}

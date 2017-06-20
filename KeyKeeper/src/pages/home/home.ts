@@ -79,7 +79,7 @@ export class HomePage {
       this.clipboard.copy(this.passInfo[index].extra);
     }
 
-    // this.toast.showShortBottom('Copiado al portapapeles').subscribe();
+    this.toast.showShortBottom('Copiado al portapapeles').subscribe();
     console.log("copiado");
   }
 
